@@ -27,10 +27,6 @@ export class MyDate {
 }
 
 const myDate = new MyDate(1993, 7, 9);
-console.log(myDate.printFormat());
-myDate.add(3, 'days');
-console.log(myDate.printFormat());
-myDate.add(1, 'months');
 console.log(myDate.day)
-console.log(myDate.month)
-console.log(myDate.year)
+myDate.day = 12;
+console.log(myDate.day)
