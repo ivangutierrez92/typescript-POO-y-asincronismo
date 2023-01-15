@@ -5,7 +5,11 @@ import { faker } from '@faker-js/faker';
 export class productMemoryService {
   private products: Product[] = [];
 
-  create = (data: CreateProductDto): Product => {
+  getAll() {
+    return this.products;
+  }
+
+  create(data: CreateProductDto): Product {
     const newProduct = {
       ...data,
       id: faker.datatype.number(),
@@ -21,13 +25,13 @@ export class productMemoryService {
     };
     this.products.push(newProduct);
     return newProduct;
-  };
+  }
 
   add(product: Product) {
     this.products.push(product);
     return product;
   }
-  updateProduct = (id: Product['id'], changes: UpdateProductDto): Product => {
+  update = (id: Product['id'], changes: UpdateProductDto): Product => {
     const index = this.products.findIndex((item) => item.id === id);
     const prevData = this.products[index];
     this.products[index] = { ...prevData, ...changes };
